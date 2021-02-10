@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobTriggerAndIndex", "BlobTriggerAndIndex\BlobTriggerAndIndex.csproj", "{B43CC809-1DF4-4344-9621-C30EBC72DBEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B43CC809-1DF4-4344-9621-C30EBC72DBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43CC809-1DF4-4344-9621-C30EBC72DBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43CC809-1DF4-4344-9621-C30EBC72DBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43CC809-1DF4-4344-9621-C30EBC72DBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D6C55E7-2AB2-4F35-8B3E-FF92CE0EBD18}
+	EndGlobalSection
+EndGlobal
