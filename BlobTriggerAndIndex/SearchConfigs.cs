@@ -7,9 +7,9 @@ namespace BlobTriggerAndIndex
     public class SearchConfigs
     {
         public static string SearchSettings = nameof(SearchSettings);
-        public string SearchEndpointURL { get; set; }
+        public string EndpointURI { get; set; }
         public string SearchAdminAPIKey { get; set; }
-        public string SearchIndexerName { get; set; }
+        public string IndexerName { get; set; }
         public string ConnectionString { get; set; }
     }
 }

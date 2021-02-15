@@ -22,7 +22,7 @@ namespace BlobTriggerAndIndex
 
             // Building the KeyVault
             var config = configBuilder.Build();
-            var keyVaultUri = "https://blobindexkeyvault.vault.azure.net/"; //config.GetValue<string>("VaultUri");
+            var keyVaultUri = "https://blobindexkeyvault.vault.azure.net/"; // config.GetValue<string>("VaultUri");
             var azureServiceTokenProvider = new AzureServiceTokenProvider();
             var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
             configBuilder.AddAzureKeyVault(keyVaultUri, keyVaultClient, new DefaultKeyVaultSecretManager());
@@ -31,7 +31,7 @@ namespace BlobTriggerAndIndex
             config = configBuilder.Build();
             builder.Services.Configure<SearchConfigs>(config.GetSection(SearchConfigs.SearchSettings));
             builder.Services.Replace(ServiceDescriptor.Singleton(typeof(IConfiguration), config));
-            builder.Services.AddSingleton<IndexerManager>();
+            builder.Services.AddSingleton<IIndexManager, IndexerManager>();
         }
     }
 }

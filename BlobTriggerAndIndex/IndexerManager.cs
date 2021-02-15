@@ -20,14 +20,14 @@ namespace BlobTriggerAndIndex
         public void RunIndexer()
         {
             SearchIndexerClient indexerClient = GetSearchIndexerClient();
-            indexerClient.RunIndexer(configs.SearchIndexerName);
+            indexerClient.RunIndexer(configs.IndexerName);
             return;
         }
 
         private SearchIndexerClient GetSearchIndexerClient()
         {
             return new SearchIndexerClient(
-                new Uri(configs.SearchEndpointURL), 
+                new Uri(configs.EndpointURI), 
                 new AzureKeyCredential(configs.SearchAdminAPIKey));
         }
     }

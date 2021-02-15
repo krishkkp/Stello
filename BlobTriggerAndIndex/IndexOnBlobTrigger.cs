@@ -20,7 +20,7 @@ namespace BlobTriggerAndIndex
 
 
         [FunctionName("IndexOnBlobTrigger")]
-        public void Run([BlobTrigger("Documents/{name}", Connection = "DefaultEndpointsProtocol=https;AccountName=hayablob;AccountKey=cbGtHHHzbIFnsdaNhQglkLSoaLWS7GRmVIFPjBaNuItf3TFwKv4WfO1kp0lDF/a9ZvvvmZD64AHSj93XnZndOw==;EndpointSuffix=core.windows.net")]Stream myBlob, string name, ILogger log)
+        public void Run([BlobTrigger("hayablobcontainer/Documents/{name}")]Stream myBlob, string name, ILogger log)
         {
             log.LogInformation($"C# Blob trigger function Processing Started");
 
