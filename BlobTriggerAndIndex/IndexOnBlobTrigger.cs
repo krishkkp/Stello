@@ -9,28 +9,24 @@ using Azure.Search.Documents.Indexes;
 
 namespace BlobTriggerAndIndex
 {
-    public static class IndexOnBlobTrigger
+    public class IndexOnBlobTrigger
     {
-        const string adminAPIKey = @"C6F88345A8A5B60EF7B5BD44DC891801";
-        const string endpoint = "https://hayanebula.search.windows.net";
-        const string indexerName = "azureblob-indexer";
+        private readonly IndexerManager indexerManager;
+
+        public IndexOnBlobTrigger(IIndexManager indexManager)
+        {
+            this.indexerManager = (IndexerManager) indexManager;
+        }
+
 
         [FunctionName("IndexOnBlobTrigger")]
-        public static void Run([BlobTrigger("Documents/{name}", Connection = "VaultUri")]Stream myBlob, string name, ILogger log)
+        public void Run([BlobTrigger("Documents/{name}", Connection = "DefaultEndpointsProtocol=https;AccountName=hayablob;AccountKey=cbGtHHHzbIFnsdaNhQglkLSoaLWS7GRmVIFPjBaNuItf3TFwKv4WfO1kp0lDF/a9ZvvvmZD64AHSj93XnZndOw==;EndpointSuffix=core.windows.net")]Stream myBlob, string name, ILogger log)
         {
             log.LogInformation($"C# Blob trigger function Processing Started");
 
-            SearchIndexerClient indexerClient = GetSearchIndexerClient();
-            indexerClient.RunIndexer(indexerName);
-
+            this.indexerManager.RunIndexer();
+            
             log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
         }
-
-
-        public static SearchIndexerClient GetSearchIndexerClient()
-        {
-            return new SearchIndexerClient(new Uri(endpoint), new AzureKeyCredential(adminAPIKey));
-        }
-
     }
 }
